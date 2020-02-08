@@ -1,7 +1,11 @@
 .App {
-  text-align: center;
-  background-color: #89b2ff;
   min-height: 100vh;
+  min-width: 100vh;
+  background-color: #2d2959;
+
+  font-family: sans-serif;
+  text-align: center;
+  position: relative;
 }
 *,
 *:before,
@@ -14,9 +18,10 @@ html {
 }
 
 .plane {
-  padding-top: 30px;
+  padding-top: 70px;
   margin: 0px auto;
-  max-width: 300px;
+  margin-left: 30%;
+  max-width: 330px;
 }
 
 .cockpit {
@@ -24,7 +29,7 @@ html {
   position: relative;
   overflow: hidden;
   text-align: center;
-  border-bottom: 5px solid #d8d8d8;
+  border-bottom: 2px solid #d8d8d8;
 }
 .cockpit:before {
   content: "";
@@ -35,12 +40,22 @@ html {
   height: 500px;
   width: 100%;
   border-radius: 50%;
-  border-right: 5px solid #d8d8d8;
-  border-left: 5px solid #d8d8d8;
+  border-right: 2px solid #d8d8d8;
+  border-left: 2px solid #d8d8d8;
 }
 .cockpit h1 {
   width: 60%;
   margin: 100px auto 35px auto;
+}
+.price {
+  position: absolute;
+  right: 20%;
+  top: 20%;
+  width: 400px;
+  height: 500px;
+  background: #948ddb;
+  border-radius: 12px;
+  padding: 20px;
 }
 
 .exit {
@@ -49,14 +64,13 @@ html {
 }
 .exit:before,
 .exit:after {
-  content: "EXIT";
+  content: "Door";
   font-size: 14px;
   line-height: 18px;
   padding: 0px 2px;
-  font-family: "Arial Narrow", Arial, sans-serif;
   display: block;
   position: absolute;
-  background: green;
+  /* background: rgb(99, 99, 99); */
   color: white;
   top: 50%;
   transform: translate(0, -50%);
@@ -69,8 +83,8 @@ html {
 }
 
 .fuselage {
-  border-right: 5px solid #d8d8d8;
-  border-left: 5px solid #d8d8d8;
+  border-right: 2px solid #d8d8d8;
+  border-left: 2px solid #d8d8d8;
 }
 
 ol {
@@ -80,6 +94,9 @@ ol {
 }
 
 .seats {
+  padding-left: 10px;
+  padding-right: 10px;
+
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -92,9 +109,23 @@ ol {
   padding: 5px;
   position: relative;
 }
+
 .seat:nth-child(3) {
   margin-right: 14.28571428571429%;
 }
+
+.vip:nth-child(1) {
+  margin-left: 7%;
+}
+
+.vip:nth-child(3) {
+  margin-left: 28%;
+}
+
+.vip:nth-child(4) {
+  margin-left: -14%;
+}
+
 .seat input[type="checkbox"] {
   position: absolute;
   opacity: 0;
@@ -137,6 +168,11 @@ ol {
   animation-duration: 300ms;
   animation-fill-mode: both;
 }
+
+.vip label {
+  background: #f04000;
+}
+
 .seat label:before {
   content: "";
   position: absolute;
@@ -216,4 +252,64 @@ ol {
 .rubberBand {
   -webkit-animation-name: rubberBand;
   animation-name: rubberBand;
+}
+
+body.error {
+  background: #f04000;
+}
+body.error fieldset {
+  box-shadow: 0 8px 10px #bd3200;
+}
+
+.c2 {
+  background-color: white;
+  width: 300px;
+  height: 500px;
+  border-radius: 15px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-block;
+}
+.field {
+  font-weight: bold;
+  width: 200px;
+  margin: 0 35px 20px;
+  height: 35px;
+  padding: 6px 15px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  background: #f6f7f9;
+  color: #748194;
+  font-size: 14px;
+}
+.field2 {
+  background: #ffbfbf;
+  font-weight: bold;
+  width: 200px;
+  margin: 0 35px 20px;
+  height: 35px;
+  padding: 6px 15px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  color: #748194;
+  font-size: 14px;
+}
+
+.signup1 {
+  color: #748194;
+  font-size: 30px;
+  text-align: center;
+  font-family: sans-serif;
+}
+a {
+  text-decoration: none;
+}
+.signup2 {
+  color: #748194;
+  font-size: 20px;
+  text-align: center;
 }
