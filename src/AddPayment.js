@@ -134,7 +134,7 @@ class AddPayment extends React.Component {
                       <div class="form-container sign-up-container">
                         <div className="form">
                           <h1>Create Account</h1>
-                          <span>ffs i realy need sleeep</span>
+                          <span>A shiny new account is waiting for you.</span>
                           <br />
                           <input
                             className="ticketing-input"
@@ -225,8 +225,8 @@ class AddPayment extends React.Component {
                           <div class="overlay-panel overlay-left">
                             <h1>Welcome Back!</h1>
                             <p>
-                              To buy check your balance, please log in your with
-                              your info.
+                              To buy and check your balance, please log in your
+                              with your info.
                             </p>
                             <button class="ghost" id="signIn">
                               Sign In

@@ -4,7 +4,7 @@ import "./Logo.css";
 
 class Logo extends React.Component {
   componentDidMount() {
-    var slides = ["CHAIN", "VEGANISM", ""],
+    var slides = ["CHAIN", "COLI", ""],
       i = 1;
     var next = 0;
 
@@ -24,12 +24,12 @@ class Logo extends React.Component {
     return (
       <div>
         <div class="bump">
-          <div class="bump-half">BLOCK</div>
+          <div class="bump-half">BLOC</div>
           <div class="bump-half bump-slide">
             <div class="bump-half-item" id="bump-swap">
-              CHAIN
+              KCHAIN
             </div>
-            <div class="bump-half-here">BANKING</div>
+            <div class="bump-half-here">PASS</div>
           </div>
         </div>
 

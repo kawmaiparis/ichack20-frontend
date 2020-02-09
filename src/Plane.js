@@ -161,7 +161,7 @@ class Plane extends React.Component {
                         <input type="checkbox" />
                         <label for="normal">.</label>
                       </li>
-                      Poor People ticket - £2
+                      Not-so-important ticket - £2
                       <br />
                       <br />
                       <AwesomeButton
