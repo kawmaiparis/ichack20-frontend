@@ -1,11 +1,11 @@
 .App {
   min-height: 100vh;
   min-width: 100vh;
-  background-color: #2d2959;
+  background-color: rgb(19, 19, 19);
 
-  font-family: sans-serif;
   text-align: center;
   position: relative;
+  overflow: auto;
 }
 *,
 *:before,
@@ -13,6 +13,9 @@
   box-sizing: border-box;
 }
 
+h2 {
+  color: black;
+}
 html {
   font-size: 16px;
 }
@@ -53,7 +56,7 @@ html {
   top: 20%;
   width: 400px;
   height: 500px;
-  background: #948ddb;
+  background: #484749;
   border-radius: 12px;
   padding: 20px;
 }
@@ -131,7 +134,7 @@ ol {
   opacity: 0;
 }
 .seat input[type="checkbox"]:checked + label {
-  background: #bada55;
+  background: #2f71bd;
   -webkit-animation-name: rubberBand;
   animation-name: rubberBand;
   animation-duration: 300ms;
@@ -186,7 +189,7 @@ ol {
 }
 .seat label:hover {
   cursor: pointer;
-  box-shadow: 0 0 0px 2px #5c6aff;
+  box-shadow: 0 0 0px 2px #99a1ff;
 }
 
 @-webkit-keyframes rubberBand {
@@ -263,7 +266,7 @@ body.error fieldset {
 
 .c2 {
   background-color: white;
-  width: 300px;
+  width: 400px;
   height: 500px;
   border-radius: 15px;
   position: absolute;
@@ -274,7 +277,7 @@ body.error fieldset {
 }
 .field {
   font-weight: bold;
-  width: 200px;
+  width: 300px;
   margin: 0 35px 20px;
   height: 35px;
   padding: 6px 15px;

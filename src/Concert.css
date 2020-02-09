@@ -1,0 +1,85 @@
+.Box {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  background: white;
+  margin: 400px 380px;
+  border-radius: 12px;
+  /* margin: 0px; */
+}
+
+.boxtop {
+  position: absolute;
+  top: -350%;
+  margin: 0 auto;
+  width: 300px;
+  height: 150px;
+  background: lightblue;
+  position: relative;
+}
+.boxtop:after {
+  background: #2d2959;
+  position: absolute;
+  content: "";
+  left: 0;
+  right: 0;
+  bottom: -25px;
+  height: 50px;
+  border-radius: 120% 120% 0 0;
+}
+.boxtop:hover {
+  background: red;
+}
+
+.boxleft {
+  position: absolute;
+  left: -95%;
+  top: -30%;
+  margin: 0 auto;
+  width: 200px;
+  height: 250px;
+  background: rgb(149, 201, 157);
+  position: relative;
+}
+.boxleft:after {
+  background: #2d2959;
+  position: absolute;
+  content: "";
+  right: 0;
+  width: 50px;
+  height: 100%;
+  border-radius: 120% 0 0 120%;
+}
+.boxleft:hover {
+  background: red;
+}
+
+.boxright {
+  position: absolute;
+  right: -95%;
+  top: -150%;
+  margin: 0 auto;
+  width: 200px;
+  height: 250px;
+  background: rgb(149, 201, 157);
+  position: relative;
+}
+.boxright:after {
+  background: #2d2959;
+  position: absolute;
+  content: "";
+  left: 0;
+  right: 0;
+  width: 50px;
+  height: 100%;
+  border-radius: 0 120% 120% 0;
+}
+.boxright:hover {
+  background: red;
+}
+
+.textstage {
+  position: absolute;
+  left: 35%;
+  top: 25%;
+}
