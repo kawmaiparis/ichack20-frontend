@@ -64,7 +64,7 @@ class Plane extends React.Component {
       total
     } = this.state;
     console.log(this.state);
-    const url = `http://146.169.189.39:8000/transactions/buy_ticket?wallet_id=${wallet_id}&wallet_key=${wallet_key}&prover_did=${prover_did}&prover_mid=${prover_mid}&price=${total}&event=airline&seat=${Array.from(
+    const url = `http://146.169.189.39:8080/transactions/buy_ticket?wallet_id=${wallet_id}&wallet_key=${wallet_key}&prover_did=${prover_did}&prover_mid=${prover_mid}&price=${total}&event=airline&seat=${Array.from(
       selectedSeats
     )}`;
 
@@ -72,7 +72,10 @@ class Plane extends React.Component {
     axios({
       method: "GET",
       url: url
-    }).then(response => this.setState({ seats: response.data.areas }));
+    }).then(response => {
+      console.log(response);
+      alert(response.data);
+    });
   }
 
   renderSeats() {
@@ -144,11 +147,26 @@ class Plane extends React.Component {
                       <ol class="cabin fuselage">{this.renderSeats()}</ol>
                       <div class="exit exit--back fuselage"></div>
                     </div>
-                    <div className="price">
+                    <div className="price legend">
                       <h1>Price</h1>
                       <h2>£{this.state.total}</h2>
+                      <div className="templateVIP">
+                        <li class="seat vip more">
+                          <input type="checkbox" />
+                          <label for="vip">.</label>
+                        </li>
+                      </div>
+                      VIP ticket - £10
+                      <li class="seat template">
+                        <input type="checkbox" />
+                        <label for="normal">.</label>
+                      </li>
+                      Poor People ticket - £2
+                      <br />
+                      <br />
                       <AwesomeButton
                         type="primary"
+                        size={70}
                         onPress={() => {
                           console.log(this.state.selectedSeats);
                           fullpageApi.moveSlideRight();
@@ -164,7 +182,7 @@ class Plane extends React.Component {
                     <div class="container">
                       <div class="c2">
                         <form class="signin">
-                          <h1 class="signup1">Payment Details</h1>
+                          {/* <h1 class="signup1">Payment Details</h1> */}
                           <h2>
                             Confirm payment for seats:{" "}
                             {Array.from(this.state.selectedSeats).join(",")}
@@ -184,14 +202,14 @@ class Plane extends React.Component {
                             onChange={this.handleChange}
                           />
                           <input
-                            name="wallet_did"
+                            name="prover_did"
                             type="text"
                             placeholder="Did"
                             class="field"
                             onChange={this.handleChange}
                           />
                           <input
-                            name="wallet_mid"
+                            name="prover_mid"
                             type="text"
                             placeholder="Master Secret ID"
                             class="field"

@@ -15,7 +15,9 @@ class Issuer extends React.Component {
       password: "",
       name: "",
       dob: "",
-      image: ""
+      image: "",
+      prover_username: "",
+      prover_password: ""
     };
   }
 
@@ -41,7 +43,7 @@ class Issuer extends React.Component {
         this.toggleProverPage();
       })
       .catch(response => {
-        console.log(response.data);
+        console.log(response);
         alert("Bad Request.");
       });
   };
@@ -119,6 +121,46 @@ class Issuer extends React.Component {
     });
   };
 
+  imageChange = e => {
+    this.setState({
+      image: e.target.files[0]
+    });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    console.log(this.state);
+    let form_data = new FormData();
+    form_data.append("image", this.state.image, this.state.image.name);
+    form_data.append("title", this.state.title);
+    form_data.append("content", this.state.content);
+    let url = "http://localhost:8000/api/posts/";
+    axios
+      .post(url, form_data, {
+        headers: {
+          "content-type": "multipart/form-data"
+        }
+      })
+      .then(res => {
+        console.log(res.data);
+      })
+      .catch(err => console.log(err));
+  };
+  createAccount() {
+    const { prover_username, prover_password, name, dob, image } = this.state;
+    // let form_data = new FormData();
+    // form_data.append("image", image, image.name);
+
+    const url = `http://146.169.189.39:8080/transactions/create_account?wallet_id=${prover_username}&wallet_key=${prover_password}&name=${name}&dob=${dob}&image=${image}`;
+    axios({
+      method: "GET",
+      url: url
+    }).then(response => {
+      console.log(response);
+      alert(response.data);
+    });
+  }
+
   render() {
     return (
       <ReactFullpage
@@ -165,7 +207,6 @@ class Issuer extends React.Component {
                           />
                         </form>
                         <br />
-                        <br />
 
                         <AwesomeButton
                           type="secondary"
@@ -192,8 +233,21 @@ class Issuer extends React.Component {
                       <div class="c2">
                         <form class="signin">
                           <h1 class="signup1">Enter yo Dets</h1>
-                          <br />
-                          <br />
+
+                          <input
+                            name="prover_username"
+                            type="text"
+                            placeholder="New Username"
+                            class="field"
+                            onChange={this.handleChange}
+                          />
+                          <input
+                            name="prover_password"
+                            type="text"
+                            placeholder="New Password"
+                            class="field"
+                            onChange={this.handleChange}
+                          />
                           <input
                             name="name"
                             type="text"
@@ -203,7 +257,7 @@ class Issuer extends React.Component {
                           />
                           <input
                             name="dob"
-                            type="date"
+                            type="string"
                             placeholder="Date of Birth*"
                             class="field"
                             onChange={this.handleChange}
@@ -214,11 +268,10 @@ class Issuer extends React.Component {
                             accept="image/x-png,image/gif,image/jpeg"
                             placeholder="Image"
                             class="field"
-                            onChange={this.handleChange}
+                            onChange={this.imageChange}
                           />
                         </form>
-                        <br />
-                        <br />
+
                         <AwesomeButton
                           type="secondary"
                           onPress={() => fullpageApi.moveSlideLeft()}
@@ -230,7 +283,7 @@ class Issuer extends React.Component {
 
                         <AwesomeButton
                           type="primary"
-                          onPress={() => console.log(this.state)}
+                          onPress={() => this.createAccount()}
                         >
                           Submit
                         </AwesomeButton>

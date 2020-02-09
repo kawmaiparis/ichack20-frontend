@@ -134,7 +134,7 @@ ol {
   opacity: 0;
 }
 .seat input[type="checkbox"]:checked + label {
-  background: #2f71bd;
+  background: #ce3247;
   -webkit-animation-name: rubberBand;
   animation-name: rubberBand;
   animation-duration: 300ms;
@@ -166,14 +166,28 @@ ol {
   font-weight: bold;
   line-height: 1.5rem;
   padding: 4px 0;
-  background: #f42536;
+  background: #5d94f5;
   border-radius: 5px;
   animation-duration: 300ms;
   animation-fill-mode: both;
 }
 
 .vip label {
-  background: #f04000;
+  background: #6957e0;
+}
+
+.template {
+  width: 45px;
+  margin-left: 160px;
+}
+
+.more {
+  width: 45px;
+  margin-right: -1000px;
+}
+
+.templateVIP {
+  margin-left: 145px;
 }
 
 .seat label:before {
