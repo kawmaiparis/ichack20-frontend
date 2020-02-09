@@ -51,28 +51,31 @@ class AddPayment extends React.Component {
     axios({
       method: "GET",
       url: url
-    })
-      .then(response => {
-        console.log(response);
-        alert(response.data);
-        this.setState({
-          username: this.newusername,
-          password: this.newpassword,
-          did: response.person_did,
-          mid: response.master_secret_id
-        });
-        const anotherurl = `http://146.169.189.39:8080/transactions/get_account_balance?wallet_id=${this.username}&wallet_key=${this.password}&prover_did=${this.did}&prover_mid=${this.master_secret_id}`;
-        axios({
-          method: "GET",
-          url: anotherurl
-        })
-          .then(() => {
-            console.log("Logged in!");
-            e.moveSlideRight();
-          })
-          .catch(err => console.log("Bad Loggin In With new Account"));
-      })
-      .catch(err => console.log("Bad Create Account"));
+    }).then(response => {
+      console.log(response.data);
+      //   const data = JSON.parse(response.data);
+      const data = response.data;
+      console.log(typeof data);
+      console.log(data);
+
+      alert(data);
+      this.setState({
+        username: newusername,
+        password: newpassword,
+        did: data.person_did,
+        mid: data.master_secret_id
+      });
+      //   const anotherurl = `http://146.169.189.39:8080/transactions/get_account_balance?wallet_id=${this.state.username}&wallet_key=${this.state.password}&prover_did=${this.state.did}&prover_mid=${this.state.master_secret_id}`;
+      //   axios({
+      //     method: "GET",
+      //     url: anotherurl
+      //   })
+      //     .then(() => {
+      //       console.log("Logged in!");
+      //       e.moveSlideRight();
+      //     })
+      //     .catch(err => console.log("Bad Loggin In With new Account"));
+    });
   }
 
   toggleProverPage = () => {
